@@ -6,14 +6,16 @@
 		<th>X</th>
 		<th>Y</th>
 		<th>Coeff</th>
+		<th>Escale</th>
 	<thead>
 	<tbody>
 		<% @destinations.each do |destination| %>
 		<tr>
 			<td><%= destination.name %></td>
-			<td> <%= destination.x %> PV</td>
-			<td> <%= destination.y %> PV</td>
-			<td> <%= destination.coeff_touristic %> PV</td>
+			<td><%= destination.x %></td>
+			<td><%= destination.y %></td>
+			<td><%= destination.coeff_touristic %></td>
+			<td><%= link_to 'ICI', destination, method: :choice %></td>
 		</tr>
 		<% end %>
 	</tbody>

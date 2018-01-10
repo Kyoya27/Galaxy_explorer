@@ -16,7 +16,9 @@ class DestinationsController < ApplicationController
 			render 'new'
 		end
 	end
-	def edit; end
+	def choice
+		render 'destinations'
+	end
 	def update
 		if @destination.update(require_destination)
 		redirect_to(@destination)
