@@ -37,9 +37,8 @@ class TransportssController < ApplicationController
 	def require_transports
 			params.require(:transports).permit(
 				:name,
-				:x,
-				:y,
-        :coeff_touristic
+				:quality_coeff,
+				:max_dist
 			)
 	end
 

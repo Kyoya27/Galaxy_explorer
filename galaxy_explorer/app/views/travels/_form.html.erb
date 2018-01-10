@@ -1,0 +1,12 @@
+<%= form_with(model: travel) do |form| %>
+  <div class="field">
+    <div class="field">
+      <%= form.label :number, 'Budget de Base' %>
+      <%= form.text_field :number %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'enregistrer' %>
+  </div>
+<% end %>

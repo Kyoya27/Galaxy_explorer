@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 	resources :destinations #, only: [:index, :show]
 
 	resources :transportss #, only: [:index, :show]
+  resources :travels #, only: [:index, :show]
 end
