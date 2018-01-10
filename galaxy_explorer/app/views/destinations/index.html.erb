@@ -1,0 +1,20 @@
+<h1> Liste </h1>
+
+<table>
+	<thead>
+		<th>Nom</th>
+		<th>X</th>
+		<th>Y</th>
+		<th>Coeff</th>
+	<thead>
+	<tbody>
+		<% @destinations.each do |destination| %>
+		<tr>
+			<td><%= destination.name %></td>
+			<td> <%= destination.x %> PV</td>
+			<td> <%= destination.y %> PV</td>
+			<td> <%= destination.coeff_touristic %> PV</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
