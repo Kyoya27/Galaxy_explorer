@@ -11,7 +11,7 @@ class TravelsController < ApplicationController
 	def create
 		@travel = Travel.new(require_travel)
 		if @travel.save
-			redirect_to(@travel)
+			redirect_to(choose)
 		else
 			render 'new'
 		end

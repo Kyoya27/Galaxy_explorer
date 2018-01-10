@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
 	resources :transportss #, only: [:index, :show]
   resources :travels #, only: [:index, :show]
+  
 end
