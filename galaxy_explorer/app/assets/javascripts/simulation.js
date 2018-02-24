@@ -20,8 +20,8 @@ function main(){
   $(document).ready(function(){
     $("#butSimu").click(function(e){
       $(".simuResult").text("");
-
-      $(".")
+      total = people + accom + guide + food + out;
+      $(".simuResult").append('<p>'+ total +'</p>');
       console.log(people + accom + guide + food + out);
       //
     })
