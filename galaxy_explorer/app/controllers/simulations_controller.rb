@@ -4,7 +4,10 @@ class SimulationsController < ApplicationController
 	def index
 		@simulations = Simulation.all
 	end
-	def show; end
+	def show
+		@simulations = Simulation.all
+		render 'index'
+	end
 	def new
 		@simulation = Simulation.new
 	end

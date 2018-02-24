@@ -9,41 +9,37 @@
 }*/
 
 function main(){
-  var people;
-  var accom;
-  var guide;
-  var food;
-  var out;
+
+  var peopleC;
+  var accomC ;
+  var guideC ;
+  var foodC ;
+  var outC ;
 
   var total;
 
   $(document).ready(function(){
+
+    peopleC = parseFloat($("#Ppeo").text());
+    accomC = parseFloat($("#Pacc").text());
+    guideC = parseFloat($("#Pgui").text());
+    foodC = parseFloat($("#Pfoo").text());
+    outC = parseFloat($("#Pout").text());
+
     $("#butSimu").click(function(e){
       $(".simuResult").text("");
-      total = people + accom + guide + food + out;
+      var people = parseInt($('select[name="simulation[coeffPeople]"] option:selected').val());
+      var accom = parseInt($('select[name="simulation[coeffAccomodation]"] option:selected').val());
+      var guide = parseInt($('select[name="simulation[coeffGuide]"] option:selected').val());
+      var food = parseInt($('select[name="simulation[coeffFood]"] option:selected').val());
+      var out = parseInt($('select[name="simulation[coeffOut]"] option:selected').val());
+      var nbDays = parseInt($('input[name="simulation[days]"]').val());
+      if(isNaN(nbDays)){
+        nbDays = 1;
+      }
+      total = (people*peopleC + accom*accomC + guide*guideC + food*foodC + out*outC)*nbDays;
       $(".simuResult").append('<p>'+ total +'</p>');
-      console.log(people + accom + guide + food + out);
-      //
     })
-    $('select[name="coeffPeople"]').on('change', function(){
-    people = parseInt($(this).val());
-    });
-    $('select[name="coeffAccomodation"]').on('change', function(){
-    accom = parseInt($(this).val());
-    });
-    $('select[name="coeffGuide"]').on('change', function(){
-    guide = parseInt($(this).val());
-    });
-    $('select[name="coeffFood"]').on('change', function(){
-    food = parseInt($(this).val());
-    });
-    $('select[name="coeffOut"]').on('change', function(){
-    out = parseInt($(this).val());
-    });
-
-
-    console.log("sauce");
-
   })
 }
 

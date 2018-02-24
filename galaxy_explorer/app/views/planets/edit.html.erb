@@ -1,3 +1,25 @@
 <h1>Edition d'une planète</h1>
 
-<%= render 'form', planet: @planet %>
+<%= form_with(model: @planet) do |form| %>
+  <div class="field">
+    <div class="field">
+      <%= form.label :name, 'Nom :' %>
+      <%= @planet.name %>
+    </div>
+    <div class="field">
+      <%= form.label :description, 'Description :' %>
+      <%= form.text_field :description %>
+    </div>
+    <div class="field">
+      <%= form.label :weather, 'Météo :' %>
+      <%= form.text_field :weather %>
+    </div>
+    <div class="field">
+      <%= form.label :galaxy, 'Galaxie :' %>
+      <%= form.text_field :galaxy %>
+    </div>
+    <div class="actions">
+      <%= form.submit 'Enregistrer' %>
+    </div>
+  </div>
+<% end %>
