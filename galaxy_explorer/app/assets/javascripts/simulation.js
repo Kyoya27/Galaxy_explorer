@@ -15,7 +15,6 @@ function main(){
   var guideC ;
   var foodC ;
   var outC ;
-
   var total;
 
   $(document).ready(function(){

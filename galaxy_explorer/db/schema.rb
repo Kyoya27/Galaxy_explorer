@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20180224113109) do
     t.string "weather"
     t.string "description"
     t.string "galaxy"
-    t.binary "thumbnail"
   end
 
   create_table "simulations", force: :cascade do |t|

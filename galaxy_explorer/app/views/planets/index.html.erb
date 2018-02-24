@@ -5,7 +5,7 @@
 <% @planets.each do |planet| %>
 <div class="row">
   <div class="offset-md-1 col-md-4">
-    <%= image_tag "Terre.jpg", class: "rounded img-thumbnail", alt: "Image de " + planet.name  %>
+    <%= image_tag planet.name + ".jpg", class: "rounded img-thumbnail", alt: "Image de " + planet.name  %>
   </div>
   <div class="col-md-6">
     <br>
@@ -21,9 +21,6 @@
     </div>
     <div class="row col-md-12">
       <h4 class="h4">Galaxy : </h4> <%= planet.galaxy %>
-    </div>
-    <div class="row col-md-12">
-      <h4 class="h4">IMAGE : </h4> <%= planet.thumbnail %>
     </div>
     <br>
     <div class="row">

@@ -6,7 +6,7 @@ class Planet < ApplicationRecord
   file = params.delete(:thumbnail)
   super
     if file
-      self.thumbnail = thumbnail.read
+      File.open("app/assets/images/" + params['name'] + ".jpg", "wb") { |f| f.write(file.read) }
     end
   end
 end
