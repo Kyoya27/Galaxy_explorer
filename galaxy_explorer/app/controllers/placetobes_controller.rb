@@ -9,20 +9,23 @@ class PlacetobesController < ApplicationController
 		render 'index'
 	end
 	def new
+		@planets = Planet.all
 		@placetobe = Placetobe.new
 	end
 	def create
 		@placetobe = Placetobe.new(require_placetobe)
 		if @placetobe.save
-			redirect_to(@placetobe)
+			redirect_to("/planets")
 		else
 			render 'new'
 		end
 	end
-	def edit; end
+	def edit
+		@planets = Planet.all
+	end
 	def update
 		if @placetobe.update(require_placetobe)
-		redirect_to(@placetobe)
+		redirect_to("/planets")
 		else
 			render 'edit'
 		end
