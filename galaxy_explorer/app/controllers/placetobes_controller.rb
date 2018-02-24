@@ -42,7 +42,8 @@ class PlacetobesController < ApplicationController
 				:name,
         :description,
 				:cost,
-				:mark
+				:mark,
+				:planet_id
 			)
 	end
 

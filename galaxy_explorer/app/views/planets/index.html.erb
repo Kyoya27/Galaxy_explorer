@@ -25,10 +25,10 @@
     <br>
     <div class="row">
       <div class="col-md-3">
-        <%= button_to "Vers simulation", "http://google.fr", :class => "btn btn-primary", :method => "get" %>
+        <%= link_to "Vers simulation", "http://google.fr", :class => "btn btn-primary", :method => "get" %>
       </div>
       <div class="col-md-2">
-        <%= button_to "Vers lieux", "http://google.fr", :class => "btn btn-primary" %>
+        <%= link_to "Vers lieux", "../placetobes/" + planet.id.to_s, :class => "btn btn-primary" %>
       </div>
       <div class="col-md-2">
         <%= link_to "Modifier", edit_planet_path(planet), :class => "btn btn-danger" %>
