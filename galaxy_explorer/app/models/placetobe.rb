@@ -1,0 +1,3 @@
+class Placetobe < ApplicationRecord
+
+end
