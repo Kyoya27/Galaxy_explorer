@@ -1,5 +1,5 @@
 class SimulationsController < ApplicationController
-	before_action :set_simulation, only: [:show, :edit, :update, :destroy]
+	before_action :set_simulation, only: [:edit, :update, :destroy]
 
 	def index
 		@simulations = Simulation.all
