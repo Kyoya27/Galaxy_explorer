@@ -1,0 +1,28 @@
+<h1> Lieu Important </h1>
+
+<table>
+	<thead>
+		<th>Nom</th>
+		<th>Description</th>
+		<th>Cout</th>
+		<th>Notes</th>
+    <th>Actions</th>
+	<thead>
+	<tbody>
+		<% @placetobes.each do |placetobe| %>
+		<tr>
+			<td><%= placetobe.name %></td>
+			<td><%= placetobe.description %></td>
+			<td><%= placetobe.cost %></td>
+			<td><%= placetobe.mark %></td>
+      <td>
+        <%= link_to 'Suprimer', placetobe, method: :delete, data: {confirm: 'Etes-vous sûr(e)'} %>
+        <%= link_to 'Modifier', edit_placetobe_path(placetobe) %>
+      </td>
+		</tr>
+		<% end %>
+    <p>
+    	<%= link_to 'Ajouter un Lieu Important', new_placetobe_path %>
+    </p>
+	</tbody>
+</table>

@@ -1,0 +1,23 @@
+<%= form_with(model: placetobe) do |form| %>
+  <div class="field">
+    <div class="field">
+      <%= form.label:name, 'Nom' %>
+      <%= form.text_field :name %>
+    </div>
+    <div class="field">
+      <%= form.label:description, 'Description' %>
+      <%= form.text_field :description %>
+    </div>
+    <div class="field">
+      <%= form.label:cost, 'Coût' %>
+      <%= form.text_field :cost %>
+    </div>
+    <div class="field">
+      <%= form.label:mark, 'Note' %>
+      <%= form.text_field :mark %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= form.submit 'Enregistrer' %>
+  </div>
+<% end %>
