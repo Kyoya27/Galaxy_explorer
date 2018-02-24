@@ -6,5 +6,6 @@ class Simulation < ActiveRecord::Migration[5.1]
       t.float :coeffGuide
       t.float :coeffFood
       t.float :coeffOut
+    end
   end
 end
