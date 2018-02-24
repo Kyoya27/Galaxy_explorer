@@ -19,7 +19,8 @@
       <%= form.text_field :galaxy %>
     </div>
     <div class="field">
-      <%= form.file_field :photo %>
+      <%= form.label :thumbnail, 'Image :' %>
+      <%= form.file_field :thumbnail %>
     </div>
     <div class="actions">
       <%= form.submit 'Enregistrer' %>

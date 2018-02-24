@@ -50,7 +50,8 @@ class PlanetsController < ApplicationController
       :name,
       :description,
       :weather,
-      :galaxy
+      :galaxy,
+      :thumbnail
     )
   end
 end
