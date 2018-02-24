@@ -4,7 +4,9 @@ class DestinationsController < ApplicationController
 	def index
 		@destinations = Destination.all
 	end
-	def show; end
+	def show;
+		render 'index'
+	end
 	def new
 		@destination = Destination.new
 	end
