@@ -5,7 +5,7 @@
 <% @planets.each do |planet| %>
 <div class="row">
   <div class="offset-md-1 col-md-4">
-    <%= link_to image_tag(planet.name + ".jpg", :class => "rounded img-thumbnail", :alt => "Image de " + planet.name) %>
+    <%= image_tag "Terre.jpg", class: "rounded img-thumbnail", alt: "Image de " + planet.name  %>
   </div>
   <div class="col-md-6">
     <br>
