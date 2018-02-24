@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180202175912) do
+ActiveRecord::Schema.define(version: 20180224105818) do
 
   create_table "planets", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 20180202175912) do
     t.string "description"
     t.string "galaxy"
     t.integer "id_img"
+  end
+
+  create_table "simulations", force: :cascade do |t|
+    t.float "coeffPeople"
+    t.float "coeffAccomodation"
+    t.float "coeffGuide"
+    t.float "coeffFood"
+    t.float "coeffOut"
   end
 
 end
