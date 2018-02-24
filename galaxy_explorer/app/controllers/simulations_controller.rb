@@ -36,8 +36,6 @@ class SimulationsController < ApplicationController
 
 	def require_simulation
 			params.require(:simulation).permit(
-				:budget_base,
-        :budget_remaining
 			)
 	end
 
