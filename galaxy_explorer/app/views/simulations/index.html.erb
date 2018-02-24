@@ -1,5 +1,14 @@
 <h1> Calculer votre Budget de Voyage interstellaire</h1>
 
+<% @simulations.where(planet_id: params[:id]).each do |sims| %>
+<div class="simsInfo">
+  <p id="Ppeo" style="display:none;"><%=sims.coeffPeople%></p>
+  <p id="Pacc" style="display:none;"><%=sims.coeffAccomodation%></p>
+  <p id="Pgui" style="display:none;"><%=sims.coeffGuide%></p>
+  <p id="Pfoo" style="display:none;"><%=sims.coeffFood%></p>
+  <p id="Pout" style="display:none;"><%=sims.coeffOut%></p>
+</div>
+<% end %>
 
 <%= render 'form', simulation: @simulation  %>
 <h2>Résultat de votre Voyage</h2>

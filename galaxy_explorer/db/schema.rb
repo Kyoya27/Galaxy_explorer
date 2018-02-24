@@ -12,20 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20180224204134) do
 
-  create_table "destinations", force: :cascade do |t|
-    t.string "name"
-    t.float "x"
-    t.float "y"
-    t.float "coeff_touristic"
-  end
-
-  create_table "placetobes", force: :cascade do |t|
+  create_table "palcetobes", force: :cascade do |t|
     t.string "name"
     t.float "cost"
     t.string "description"
     t.integer "mark"
+    t.integer "planet_id"
   end
-
+  
   create_table "planets", force: :cascade do |t|
     t.string "name"
     t.string "weather"
@@ -40,17 +34,6 @@ ActiveRecord::Schema.define(version: 20180224204134) do
     t.float "coeffGuide"
     t.float "coeffFood"
     t.float "coeffOut"
-  end
-
-  create_table "transports", force: :cascade do |t|
-    t.string "name"
-    t.float "quality_coeff"
-    t.float "max_dist"
-  end
-
-  create_table "travels", force: :cascade do |t|
-    t.float "budget_base"
-    t.float "budget_remaining"
   end
 
 end
