@@ -1,12 +1,11 @@
-class Simulations < ActiveRecord::Migration[5.1]
+class Simulation < ActiveRecord::Migration[5.1]
   def change
     create_table :simulations do |t|
-      t.float :coeffPeople
-      t.float :coeffAccomodation
+      t.flaot :coeffPeople
+      t.float :coeffAcomodation
       t.float :coeffGuide
       t.float :coeffFood
       t.float :coeffOut
-      t.integer :planet_id
     end
   end
 end

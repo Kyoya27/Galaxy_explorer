@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<h1 class="text-center h1">Liste des planètes</h1>
+<br><br>
+<% @planets.each do |planet| %>
+<div class="row">
+  <div class="offset-md-1 col-md-4">
+    <%= link_to image_tag("Terre.jpg", :class => "rounded img-thumbnail", :alt => "Image de " + planet.name) %>
+  </div>
+  <div class="col-md-6">
+    <br>
+    <div class="row col-md-12">
+      <h4 class="h4">Nom : </h4> <%= planet.name %>
+    </div>
+    <div class="row col-md-12">
+      <h4 class="h4">Description : </h4> <%= planet.description %>
+    </div>
+    <br>
+    <div class="row col-md-12">
+      <h4 class="h4">Météo : </h4> <%= planet.weather %>
+    </div>
+    <div class="row col-md-12">
+      <h4 class="h4">Galaxy : </h4> <%= planet.galaxy %>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-3">
+        <%= link_to "Vers simulation", "http://google.fr", :class => "btn btn-primary", :method => "get" %>
+      </div>
+      <div class="col-md-2">
+        <%= link_to "Vers lieux", "../placetobes/" + planet.id.to_s, :class => "btn btn-primary" %>
+      </div>
+      <div class="col-md-2">
+        <%= link_to "Modifier", edit_planet_path(planet), :class => "btn btn-danger" %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to 'Supprimer', planet, method: :delete, data: { confirm: 'Êtes-vous sûr ?' }, class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+
+</div>
+<% end %>

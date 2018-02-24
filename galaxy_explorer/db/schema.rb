@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180224105818) do
+ActiveRecord::Schema.define(version: 20180224113109) do
+
+  create_table "placetobes", force: :cascade do |t|
+    t.string "name"
+    t.float "cost"
+    t.string "description"
+    t.integer "mark"
+    t.integer "planet_id"
+  end
 
   create_table "destinations", force: :cascade do |t|
     t.string "name"
@@ -24,7 +32,6 @@ ActiveRecord::Schema.define(version: 20180224105818) do
     t.string "weather"
     t.string "description"
     t.string "galaxy"
-    t.integer "id_img"
   end
 
   create_table "simulations", force: :cascade do |t|
@@ -33,6 +40,7 @@ ActiveRecord::Schema.define(version: 20180224105818) do
     t.float "coeffGuide"
     t.float "coeffFood"
     t.float "coeffOut"
+    t.integer "planet_id"
   end
 
   create_table "transports", force: :cascade do |t|
