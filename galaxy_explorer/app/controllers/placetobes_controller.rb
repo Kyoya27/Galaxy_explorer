@@ -32,7 +32,7 @@ class PlacetobesController < ApplicationController
 	end
 	def destroy
 		@placetobe.destroy
-		redirect_to(@placetobe)
+		redirect_to("/planets")
 	end
 
 	private

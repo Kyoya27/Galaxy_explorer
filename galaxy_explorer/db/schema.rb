@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180224204134) do
+ActiveRecord::Schema.define(version: 20180224113109) do
 
-  create_table "palcetobes", force: :cascade do |t|
+  create_table "placetobes", force: :cascade do |t|
     t.string "name"
     t.float "cost"
     t.string "description"
     t.integer "mark"
     t.integer "planet_id"
   end
-  
+
   create_table "planets", force: :cascade do |t|
     t.string "name"
     t.string "weather"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20180224204134) do
     t.float "coeffGuide"
     t.float "coeffFood"
     t.float "coeffOut"
+    t.integer "planet_id"
   end
 
 end
