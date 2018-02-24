@@ -12,12 +12,29 @@
 
 ActiveRecord::Schema.define(version: 20180202175912) do
 
+  create_table "destinations", force: :cascade do |t|
+    t.string "name"
+    t.float "x"
+    t.float "y"
+    t.float "coeff_touristic"
+  end
+
   create_table "planets", force: :cascade do |t|
     t.string "name"
     t.string "weather"
     t.string "description"
     t.string "galaxy"
-    t.integer "id_img"
+  end
+
+  create_table "transports", force: :cascade do |t|
+    t.string "name"
+    t.float "quality_coeff"
+    t.float "max_dist"
+  end
+
+  create_table "travels", force: :cascade do |t|
+    t.float "budget_base"
+    t.float "budget_remaining"
   end
 
 end

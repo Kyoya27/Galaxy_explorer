@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<h1 class="text-center h1">Liste des planètes</h1>
+<br><br><br>
+<% @planets.each do |planet| %>
+<div class="row">
+  <div class="offset-md-1 col-md-4">
+    <%= link_to image_tag(planet.name+".jpg", :class => "rounded img-thumbnail") %>
+  </div>
+  <div class="col-md-6">
+    <br><br>
+    <div class="row col-md-12">
+      <h4 class="h4">Description : </h4> <%= planet.description %>
+    </div>
+    <div class="row col-md-12">
+      <h4 class="h4">Galaxy : </h4> <div<%= planet.galaxy %>
+    </div>
+    <div class="row col-md-12">
+      <h4 class="h4">Météo : </h4> <%= planet.weather %>
+    </div>
+    </div>
+  </div>
+</div>
+<% end %>
