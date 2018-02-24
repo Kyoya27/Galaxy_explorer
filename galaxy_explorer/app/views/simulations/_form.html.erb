@@ -1,6 +1,10 @@
 <%= form_with(model: simulation) do |form| %>
 <div class="field">
   <div class="field">
+    <%= form.label :days, 'Nombre de Jours : ' %>
+    <%= form.text_field :days %>
+  </div>
+  <div class="field">
     <%= form.label :coeffPeople, 'Nombre de Voyageurs : ' %>
     <%= form.select :coeffPeople, [['Seul', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6]] %>
   </div>
@@ -30,7 +34,7 @@
   </div>
 
   <div class="actions" id="butSimu">
-    <%= form.submit 'Simuler le Voyage' %>
+    <p>bonjour</p>
   </div>
 </div>
 

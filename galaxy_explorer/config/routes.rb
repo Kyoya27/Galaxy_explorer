@@ -6,8 +6,6 @@ Rails.application.routes.draw do
 	resources :transportss #, only: [:index, :show]
   resources :travels #, only: [:index, :show]
 	resources :planets #, only: [:index, :show]
-
-
   resources :simulations #, only: [:index, :show]
   # map.simulation "finalResult", :controller => "simulation"
 
