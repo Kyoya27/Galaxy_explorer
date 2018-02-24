@@ -9,7 +9,6 @@ class PlacetobesController < ApplicationController
 		render 'index'
 	end
 	def new
-		@planets = Planet.all
 		@placetobe = Placetobe.new
 	end
 	def create

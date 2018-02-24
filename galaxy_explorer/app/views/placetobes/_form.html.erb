@@ -1,4 +1,4 @@
-<%= form_with(model: placetobe) do |form| %>
+<%= form_for(@placetobe) do |form| %>
   <div class="field">
     <div class="field">
       <%= form.label:name, 'Nom' %>
@@ -20,8 +20,8 @@
       <%= form.label:planet_id, 'Planète' %>
       <%= form.select :planet_id, options_from_collection_for_select(Planet.all, :id, :name)%>
     </div>
-  </div>
-  <div class="actions">
-    <%= form.submit 'Enregistrer' %>
+    <div class="action">
+      <%= form.submit 'Enregistrer' %>
+    </div>
   </div>
 <% end %>
