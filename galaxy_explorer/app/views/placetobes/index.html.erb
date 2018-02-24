@@ -9,7 +9,7 @@
     <th>Actions</th>
 	<thead>
 	<tbody>
-		<% @placetobes.each do |placetobe| %>
+		<% @placetobes.where(planet_id: params[:id]).each do |placetobe| %>
 		<tr>
 			<td><%= placetobe.name %></td>
 			<td><%= placetobe.description %></td>
