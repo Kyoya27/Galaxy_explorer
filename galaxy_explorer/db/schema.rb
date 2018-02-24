@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180202175912) do
+ActiveRecord::Schema.define(version: 20180224113109) do
+
+  create_table "placetobes", force: :cascade do |t|
+    t.string "name"
+    t.float "cost"
+    t.string "description"
+    t.integer "mark"
+  end
 
   create_table "destinations", force: :cascade do |t|
     t.string "name"
@@ -35,6 +42,14 @@ ActiveRecord::Schema.define(version: 20180202175912) do
   create_table "travels", force: :cascade do |t|
     t.float "budget_base"
     t.float "budget_remaining"
+  end
+
+  create_table "simulations", force: :cascade do |t|
+    t.float "coeffPeople"
+    t.float "coeffAccomodation"
+    t.float "coeffGuide"
+    t.float "coeffFood"
+    t.float "coeffOut"
   end
 
 end
