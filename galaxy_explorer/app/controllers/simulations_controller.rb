@@ -11,7 +11,7 @@ class SimulationsController < ApplicationController
 	def create
 		@simulation = Simulation.new(require_simulation)
 		if @simulation.save
-			redirect_to(choose)
+			redirect_to()
 		else
 			render 'new'
 		end
@@ -29,6 +29,14 @@ class SimulationsController < ApplicationController
 		redirect_to(simulations_path)
 	end
 
+	def finalResult
+		@simulation = require_simulation
+		@result = @simulation.coeffPeople + @simulation.coeffAccomodation
+		+ @simulation.coeffGuide+ @simulation.coeffFood
+		+ @simulation.coeffOut
+	end
+
+
 	private
 	def set_simulation
 		@simulation = Simulation.find(params[:id])
@@ -36,6 +44,11 @@ class SimulationsController < ApplicationController
 
 	def require_simulation
 			params.require(:simulation).permit(
+				:coeffPeople,
+	      :coeffAccomodation,
+	      :coeffGuide,
+	      :coeffFood,
+	      :coeffOut
 			)
 	end
 

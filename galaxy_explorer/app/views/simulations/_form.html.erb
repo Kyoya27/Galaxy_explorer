@@ -1,0 +1,38 @@
+<%= form_with(model: simulation) do |form| %>
+<div class="field">
+  <div class="field">
+    <%= form.label :coeffPeople, 'Nombre de Voyageurs : ' %>
+    <%= form.select :coeffPeople, [['Seul', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6]] , :id => "people",
+    :selected => "['Seul', 1]"%>
+  </div>
+  <div class="field">
+    <%= form.label :coeffAccomodation, 'Hébergement : ' %>
+    <%= form.select :coeffAccomodation, [
+      ['Chez des amis', 1], ['Hôtel Low Gamme', 2],
+      ['Hôtel Middle Gamme', 3], ['Hôtel High Gamme', 4],
+      ['Location Maison ou Appartement', 5]] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :coeffGuide, 'Accompagnement : ' %>
+    <%= form.select :coeffGuide, [['Demi-Journées', 1], ['Journées Entières', 2], ['Sur Mesure', 3]] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :coeffFood, 'Nourriture : ' %>
+    <%= form.select :coeffFood, [
+      ['Cuisine de Pays PARDI !', 1], ['Restauration Rapide', 2], ['Haute Gastronomie', 3]] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :coeffOut, 'Sorties : ' %>
+    <%= form.select :coeffOut, [
+      ['Economique', 1], ['Sites touristiques classiques', 2], ['Sorties coûteuses', 3]] %>
+  </div>
+
+  <div class="actions" id="butSimu">
+    <%= form.submit 'Simuler le Voyage' %>
+  </div>
+</div>
+
+<% end %>
