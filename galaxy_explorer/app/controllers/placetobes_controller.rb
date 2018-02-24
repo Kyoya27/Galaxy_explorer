@@ -1,5 +1,5 @@
 class PlacetobesController < ApplicationController
-	before_action :set_travel, only: [:show, :edit, :update, :destroy]
+	before_action :set_placetobe, only: [:edit, :update, :destroy]
 
 	def index
 		@placetobes = Placetobe.all
@@ -36,7 +36,7 @@ class PlacetobesController < ApplicationController
 	end
 
 	private
-	def set_travel
+	def set_placetobe
 		@placetobe = Placetobe.find(params[:id])
 	end
 
