@@ -1,0 +1,30 @@
+<%= form_for(@simulation) do |form| %>
+  <div class="field">
+    <div class="field">
+      <%= form.label :coeffPeople, 'People :' %>
+        <%= form.text_field :coeffPeople %>
+    </div>
+    <div class="field">
+      <%= form.label :coeffAccomodation, 'Accomodation :' %>
+      <%= form.text_field :coeffAccomodation %>
+    </div>
+    <div class="field">
+      <%= form.label :coeffGuide, 'Guide :' %>
+      <%= form.text_field :coeffGuide %>
+    </div>
+    <div class="field">
+      <%= form.label :coeffFood, 'Food :' %>
+      <%= form.text_field :coeffFood %>
+    </div>
+    <div class="field">
+      <%= form.label :coeffOut, 'Out :' %>
+      <%= form.text_field :coeffOut %>
+    </div>
+    <div class="field">
+      <input name="simulation[planet_id]" id="planet_id" type="text" style="display:none" value="<%= params[:id_planet] %>"></input>
+    </div>
+    <div class="actions">
+      <%= form.submit 'Enregistrer' %>
+    </div>
+  </div>
+<% end %>

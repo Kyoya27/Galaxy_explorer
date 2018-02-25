@@ -17,7 +17,7 @@ class PlanetsController < ApplicationController
   def create
     @planet = Planet.new(planet_params)
     if @planet.save
-      redirect_to(@planet)
+      redirect_to("/simulations/new?id_planet=" + @planet.id.to_s)
     else
       render 'new'
     end

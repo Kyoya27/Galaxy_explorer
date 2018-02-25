@@ -14,15 +14,14 @@ class SimulationsController < ApplicationController
 	def create
 		@simulation = Simulation.new(require_simulation)
 		if @simulation.save
-			redirect_to()
+			redirect_to("/planets")
 		else
 			render 'new'
 		end
 	end
-	def edit; end
 	def update
 		if @simulation.update(require_simulation)
-		redirect_to(@simulation)
+		redirect_to("/planets")
 		else
 			render 'edit'
 		end
@@ -51,7 +50,8 @@ class SimulationsController < ApplicationController
 	      :coeffAccomodation,
 	      :coeffGuide,
 	      :coeffFood,
-	      :coeffOut
+	      :coeffOut,
+				:planet_id
 			)
 	end
 
