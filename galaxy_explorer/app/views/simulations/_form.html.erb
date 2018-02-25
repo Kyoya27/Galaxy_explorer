@@ -1,0 +1,66 @@
+<%= form_with(model: simulation) do |form| %>
+<div class="field container-fluid">
+  <div class="row lineForm">
+    <div class="field col-lg-3">
+    <%= form.label :days,'Nombre de Jours : ' %>
+    </div>
+    <div class="field col-lg-2">
+    <%= form.text_field :days , class: "height-input width-input" %>
+    </div>
+    <div class="offset-lg-2">
+    </div>
+    <div class="field col-lg-3">
+      <%= form.label :coeffPeople, 'Nombre de Voyageurs : ' %>
+    </div>
+    <div class="field col-lg-2 width-input">
+      <%= form.select :coeffPeople, [['Seul', 300], ['2', 540], ['3', 810], ['4', 1180], ['5', 135], ['6', 1620]]%>
+    </div>
+  </div>d
+  <div class="row lineForm">
+    <div class="field col-lg-3">
+      <%= form.label :coeffAccomodation, 'Hébergement : ' %>
+    </div>
+    <div class="field col-lg-2 width-input">
+      <%= form.select :coeffAccomodation, [
+        ['Chez des amis', 150], ['Hôtel Low Gamme', 290],
+        ['Hôtel Middle Gamme', 420], ['Hôtel High Gamme', 560],
+        ['Location Maison ou Appartement', 700]] %>
+    </div>
+    <div class="offset-lg-2">
+    </div>
+    <div class="field col-lg-3">
+      <%= form.label :coeffGuide, 'Accompagnement : ' %>
+    </div>
+    <div class="field col-lg-2 width-input">
+      <%= form.select :coeffGuide, [['Demi-Journées', 100], ['Journées Entières', 180], ['Sur Mesure', 200]] %>
+    </div>
+  </div>
+  <div class="row lineForm">
+    <div class="field col-lg-3">
+      <%= form.label :coeffFood, 'Nourriture : ' %>
+    </div>
+    <div class="field col-lg-2 width-input">
+      <%= form.select :coeffFood, [
+        ['Cuisine de Pays PARDI !', 300], ['Restauration Rapide', 150], ['Haute Gastronomie', 500]] %>
+    </div>
+    <div class="offset-lg-2">
+    </div>
+    <div class="field col-lg-3">
+      <%= form.label :coeffOut, 'Sorties : ' %>
+    </div>
+    <div class="field col-lg-2 width-input">
+      <%= form.select :coeffOut, [
+        ['Economique', 160], ['Sites touristiques classiques', 250], ['Sorties coûteuses', 400]] %>
+    </div>
+  </div>
+  <br>
+  <div class="row lineForm" style="text-align:center !important;">
+    <div class="actions col-lg-12" id="butSimu">
+      <input type="button" value="Simuler le Voyage">
+    </div>
+  </div>
+  <br>
+</div>
+</div>
+
+<% end %>
