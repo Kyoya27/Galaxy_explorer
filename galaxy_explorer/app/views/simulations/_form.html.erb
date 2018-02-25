@@ -1,41 +1,43 @@
 <%= form_with(model: simulation) do |form| %>
-<div class="field">
-  <div class="field">
+<div class="field container-fluid">
+  <div class="row">
+    <div class="field col-md-6">
     <%= form.label :days, 'Nombre de Jours : ' %>
     <%= form.text_field :days %>
   </div>
-  <div class="field">
+  <div class="field col-md-6">
     <%= form.label :coeffPeople, 'Nombre de Voyageurs : ' %>
-    <%= form.select :coeffPeople, [['Seul', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['6', 6]] %>
+    <%= form.select :coeffPeople, [['Seul', 300], ['2', 540], ['3', 810], ['4', 1180], ['5', 135], ['6', 1620]] %>
   </div>
-  <div class="field">
+  <div class="field col-md-6">
     <%= form.label :coeffAccomodation, 'Hébergement : ' %>
     <%= form.select :coeffAccomodation, [
-      ['Chez des amis', 1], ['Hôtel Low Gamme', 2],
-      ['Hôtel Middle Gamme', 3], ['Hôtel High Gamme', 4],
-      ['Location Maison ou Appartement', 5]] %>
+      ['Chez des amis', 150], ['Hôtel Low Gamme', 290],
+      ['Hôtel Middle Gamme', 420], ['Hôtel High Gamme', 560],
+      ['Location Maison ou Appartement', 700]] %>
   </div>
 
-  <div class="field">
+  <div class="field col-md-6">
     <%= form.label :coeffGuide, 'Accompagnement : ' %>
-    <%= form.select :coeffGuide, [['Demi-Journées', 1], ['Journées Entières', 2], ['Sur Mesure', 3]] %>
+    <%= form.select :coeffGuide, [['Demi-Journées', 100], ['Journées Entières', 180], ['Sur Mesure', 200]] %>
   </div>
 
-  <div class="field">
+  <div class="field col-md-6">
     <%= form.label :coeffFood, 'Nourriture : ' %>
     <%= form.select :coeffFood, [
-      ['Cuisine de Pays PARDI !', 1], ['Restauration Rapide', 2], ['Haute Gastronomie', 3]] %>
+      ['Cuisine de Pays PARDI !', 300], ['Restauration Rapide', 150], ['Haute Gastronomie', 500]] %>
   </div>
 
-  <div class="field">
+  <div class="field col-md-6">
     <%= form.label :coeffOut, 'Sorties : ' %>
     <%= form.select :coeffOut, [
-      ['Economique', 1], ['Sites touristiques classiques', 2], ['Sorties coûteuses', 3]] %>
+      ['Economique', 160], ['Sites touristiques classiques', 250], ['Sorties coûteuses', 400]] %>
   </div>
 
-  <div class="actions" id="butSimu">
-    <p>bonjour</p>
+  <div class="actions col-md-12" id="butSimu">
+    <input type="button" value="Simuler le Voyage">
   </div>
+</div>
 </div>
 
 <% end %>
