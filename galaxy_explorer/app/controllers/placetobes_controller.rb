@@ -14,7 +14,7 @@ class PlacetobesController < ApplicationController
 	def create
 		@placetobe = Placetobe.new(require_placetobe)
 		if @placetobe.save
-			redirect_to("/planets")
+			redirect_to("/placetobes/" + @placetobe.planet_id.to_s)
 		else
 			render 'new'
 		end

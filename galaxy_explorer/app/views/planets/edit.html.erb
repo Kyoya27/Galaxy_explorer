@@ -5,7 +5,7 @@
 <%= image_tag "bg.jpg", class: "full-background" %>
 <div class="container-fluid text-white position-sticky">
   <br>
-  <h1 id="title" class="text-centered">Edition d'une planète</h1>
+  <h1 id="title" class="text-centered">Edition de <%= @planet.name %></h1>
   <br><br><br>
   <div class="offset-md-4 col-md-4">
     <%= form_with(model: @planet) do |form| %>
@@ -26,32 +26,9 @@
       <%= form.text_field :galaxy, class: "form-control", id: :galaxy %>
     </div>
     <div class="actions">
-      <%= form.submit 'Enregistrer', class: "btn btn-success float-right" %>
+      <%= form.submit 'Enregistrer', class: "btn btn-success float-left" %>
+      <%= link_to "Retour", planets_path, class: "btn btn-danger float-right" %>
     </div>
     <% end %>
   </div>
-  <!--
-  <%= form_with(model: @planet) do |form| %>
-    <div class="field">
-      <div class="field">
-        <%= form.label :name, 'Nom :' %>
-        <%= @planet.name %>
-      </div>
-      <div class="field">
-        <%= form.label :description, 'Description :' %>
-        <%= form.text_field :description %>
-      </div>
-      <div class="field">
-        <%= form.label :weather, 'Météo :' %>
-        <%= form.text_field :weather %>
-      </div>
-      <div class="field">
-        <%= form.label :galaxy, 'Galaxie :' %>
-        <%= form.text_field :galaxy %>
-      </div>
-      <div class="actions">
-        <%= form.submit 'Enregistrer' %>
-      </div>
-    </div>
-  <% end %> -->
 </div>

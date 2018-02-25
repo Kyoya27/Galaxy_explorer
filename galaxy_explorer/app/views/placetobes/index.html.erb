@@ -1,34 +1,40 @@
-<div class="background">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<h1 style="text-align:center;"> Lieu Important </h1>
-
-<table>
-	<thead>
-		<th>Nom</th>
-		<th>Description</th>
-		<th>Cout</th>
-		<th>Notes</th>
-    <th>Actions</th>
-	<thead>
-	<tbody>
-		<% @placetobes.where(planet_id: params[:id]).each do |placetobe| %>
-		<tr>
-			<td><%= placetobe.name %></td>
-			<td><%= placetobe.description %></td>
-			<td><%= placetobe.cost %></td>
-			<td><%= placetobe.mark %></td>
-      <td>
-        <%= link_to 'Suprimer', placetobe, method: :delete, data: {confirm: 'Etes-vous sûr(e)'} %>
-        <%= link_to 'Modifier', edit_placetobe_path(placetobe) %>
-      </td>
-		</tr>
-		<% end %>
-	</tbody>
-</table>
-<p>
-  <%= link_to 'Ajouter un Lieu Important', new_placetobe_path %>
-</p>
-<p>
-  <%= link_to 'Retour', planets_path %>
-</p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<%= image_tag "bg.jpg", class: "full-background" %>
+<div class="container-fluid text-white position-sticky">
+	<br>
+	<% Planet.where(id: params[:id]).each do |pl| %>
+  <h1 id="title" class="text-centered">Lieux phares de la planète <%= pl.name %></h1>
+	<% end %>
+  <br><br><br>
+	<div class="offset-md-3 col-md-6">
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Nom</th>
+					<th scope="col">Description</th>
+					<th scope="col">Coût</th>
+					<th scope="col">Notes</th>
+					<th scope="col">Modifier</th>
+					<th scope="col">Supprimer</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @placetobes.where(planet_id: params[:id]).each do |placetobe| %>
+					<tr>
+						<td><%= placetobe.name %></td>
+						<td><%= placetobe.description %></td>
+						<td><%= placetobe.cost %></td>
+						<td><%= placetobe.mark %></td>
+						<td><%= link_to 'Modifier', edit_placetobe_path(placetobe) %></td>
+						<td><%= link_to 'Suprimer', placetobe, method: :delete, data: {confirm: 'Etes-vous sûr(e)'} %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<br><br><br>
+		<%= link_to "Ajouter un lieu phare", new_placetobe_path, class: "btn btn-success float-left" %>
+		<%= link_to "Retour", planets_path, class: "btn btn-danger float-right" %>
+	</div>
 </div>

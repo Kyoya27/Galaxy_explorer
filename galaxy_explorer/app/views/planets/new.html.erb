@@ -30,7 +30,8 @@
         <%= form.file_field :thumbnail, class: "form-control-file", id: :thumbnail %>
       </div>
       <div class="actions">
-        <%= form.submit 'Enregistrer', class: "btn btn-success float-right" %>
+        <%= form.submit 'Enregistrer', class: "btn btn-success float-left" %>
+        <%= link_to "Retour", planets_path, class: "btn btn-danger float-right" %>
       </div>
     <% end %>
   </div>
