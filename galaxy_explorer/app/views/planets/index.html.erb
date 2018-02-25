@@ -1,51 +1,132 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+<html>
+<div class="container-fluid">
 <h1 class="text-center h1">Liste des planètes</h1>
 <br><br>
-<% @planets.each do |planet| %>
-<div class="row">
-  <div class="offset-md-1 col-md-4">
-    <%= image_tag planet.name + ".jpg", class: "rounded img-thumbnail img-responsive img-fluid", style: "width: 300px; height: 300px", alt: "Image de " + planet.name  %>
-  </div>
-  <div class="col-md-6">
-    <br>
-    <div class="row col-md-12">
-      <h4 class="h4">Nom : </h4> <%= planet.name %>
-    </div>
-    <div class="row col-md-12">
-      <h4 class="h4">Description : </h4> <%= planet.description %>
-    </div>
-    <br>
-    <div class="row col-md-12">
-      <h4 class="h4">Météo : </h4> <%= planet.weather %>
-    </div>
-    <div class="row col-md-12">
-      <h4 class="h4">Galaxy : </h4> <%= planet.galaxy %>
-    </div>
-    <br>
+<%
+  count = 0;
+  @planets.each do |planet|
+    if count % 2 == 0
+%>
+      <div class="row">
+        <div class="offset-md-2 col-md-3">
+          <%= image_tag planet.name + ".jpg", class: "rounded img-thumbnail img-responsive img-fluid", style: "width: 300px; height: 300px", alt: "Image de " + planet.name  %>
+        </div>
+        <div class="col-md-5">
+          <br>
+          <dl class="row">
+            <dt class="col-md-3">Nom</dt>
+            <dd class="col-md-9"><%= planet.name %></dd>
+            <dt class="col-md-3">Description</dt>
+            <dd class="text-justify col-md-9"><%= planet.description %></dd>
+            <dt class="col-md-3">Météo</dt>
+            <dd class="col-md-9"><%= planet.weather %></dd>
+            <dt class="col-md-3">Galaxie</dt>
+            <dd class="col-md-9"><%= planet.galaxy %></dd>
+          </dl>
+          <!--
+          <div class="row col-md-12">
+            <h4 class="h4">Nom : </h4><p><%= planet.name %></p>
+          </div>
+          <div class="row col-md-12">
+            <h4 class="h4">Description : </h4><p style="text-indent:10%;" class="text-justify"><%= planet.description %></p>
+          </div>
+          <div class="row col-md-12">
+            <h4 class="h4">Météo : </h4><p><%= planet.weather %></p>
+          </div>
+          <div class="row col-md-12">
+            <h4 class="h4">Galaxy : </h4><p><%= planet.galaxy %></p>
+          </div>
+          <br><br> -->
+          <div class="row">
+            <div class="col-md-3">
+              <%= link_to "Simulation", "../simulations/" + planet.id.to_s, :class => "btn btn-outline-primary btn-block", :method => "get" %>
+            </div>
+            <div class="col-md-4">
+              <%= link_to "Lieux phares", "../placetobes/" + planet.id.to_s, :class => "btn btn-outline-primary btn-block" %>
+            </div>
+            <div class="dropdown col-md-3">
+              <button class="dropdown-toggle btn btn-outline-danger btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Options
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <!-- Change planet -->
+                <%= link_to "Modifier", edit_planet_path(planet), :class => "dropdown-item" %>
+                <div class="dropdown-divider"></div>
+                <!-- Change coeff -->
+                <% Simulation.where(planet_id: planet.id).each do |s| %>
+                <%= link_to "Modif. coef", edit_simulation_path(s.id), :class => "dropdown-item" %>
+                <div class="dropdown-divider"></div>
+                <% end %>
+                <!-- Delete planet -->
+                <%= link_to 'Supprimer', planet, method: :delete, data: { confirm: 'Êtes-vous sûr ?' }, class: "dropdown-item" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br><hr class="offset-md-3 col-md-6"><br>
+
+    <% else %>
     <div class="row">
+      <div class="offset-md-2 col-md-5">
+        <br>
+        <div class="row col-md-12">
+          <h4 class="h4">Nom : </h4> <%= planet.name %>
+        </div>
+        <div class="row col-md-12">
+          <h4 class="h4">Description : </h4><p style="text-indent:10%;" class="text-justify"><%= planet.description %></p>
+        </div>
+        <div class="row col-md-12">
+          <h4 class="h4">Météo : </h4> <%= planet.weather %>
+        </div>
+        <div class="row col-md-12">
+          <h4 class="h4">Galaxy : </h4> <%= planet.galaxy %>
+        </div>
+        <br><br>
+        <div class="row">
+          <div class="col-md-3">
+            <%= link_to "Simulation", "../simulations/" + planet.id.to_s, :class => "btn btn-outline-primary btn-block", :method => "get" %>
+          </div>
+          <div class="col-md-4">
+            <%= link_to "Lieux phares", "../placetobes/" + planet.id.to_s, :class => "btn btn-outline-primary btn-block" %>
+          </div>
+          <div class="dropdown col-md-3">
+            <button class="dropdown-toggle btn btn-outline-danger btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Options
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <!-- Change planet -->
+              <%= link_to "Modifier", edit_planet_path(planet), :class => "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <!-- Change coeff -->
+              <% Simulation.where(planet_id: planet.id).each do |s| %>
+              <%= link_to "Modif. coef", edit_simulation_path(s.id), :class => "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <% end %>
+              <!-- Delete planet -->
+              <%= link_to 'Supprimer', planet, method: :delete, data: { confirm: 'Êtes-vous sûr ?' }, class: "dropdown-item" %>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="col-md-3">
-        <%= link_to "Vers simulation", "../simulations/" + planet.id.to_s, :class => "btn btn-primary", :method => "get" %>
-      </div>
-      <div class="col-md-2">
-        <%= link_to "Vers lieux", "../placetobes/" + planet.id.to_s, :class => "btn btn-primary" %>
-      </div>
-      <div class="col-md-2">
-        <% Simulation.where(planet_id: planet.id).each do |s| %>
-        <%= link_to "Modif. coef", edit_simulation_path(s.id), :class => "btn btn-danger" %>
-        <% end %>
-      </div>
-      <div class="col-md-2">
-        <%= link_to "Modifier", edit_planet_path(planet), :class => "btn btn-danger" %>
-      </div>
-      <div class="col-md-3">
-        <%= link_to 'Supprimer', planet, method: :delete, data: { confirm: 'Êtes-vous sûr ?' }, class: "btn btn-danger" %>
+        <%= image_tag planet.name + ".jpg", class: "rounded img-thumbnail img-responsive img-fluid", style: "width: 300px; height: 300px", alt: "Image de " + planet.name  %>
       </div>
     </div>
-  </div>
-</div>
-<% end %>
-<br><br><br>
+    <br><hr class="offset-md-3 col-md-6"><br>
+
+    <% end
+    count += 1
+  end
+%>
+<br><br>
 <div class="row mx-auto">
-    <%= link_to "Ajouter une planète", new_planet_path(), :class => "offset-md-5 col-md-2 btn btn-success" %>
+    <%= link_to "Ajouter une planète", new_planet_path(), :class => "offset-md-5 col-md-2 btn btn-outline-success" %>
 </div>
+<br>
+</div>
+</html>

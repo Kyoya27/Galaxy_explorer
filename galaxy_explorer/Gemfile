@@ -57,3 +57,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #Paperclip to allow people to upload pictures
 gem "paperclip"
+
+#Popper.js for Bootstrap.js
+gem 'popper_js', '~> 1.12.9'
+
+#boostrap one
+gem 'bootstrap', '~> 4.0.0'
