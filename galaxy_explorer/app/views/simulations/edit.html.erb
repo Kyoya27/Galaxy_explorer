@@ -1,32 +1,39 @@
-<h1>Edition des coefficients</h1>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<%= form_for(@simulation) do |form| %>
-  <div class="field">
-    <div class="field">
-      <%= form.label :coeffPeople, 'People :' %>
-        <%= form.text_field :coeffPeople %>
-    </div>
-    <div class="field">
-      <%= form.label :coeffAccomodation, 'Accomodation :' %>
-      <%= form.text_field :coeffAccomodation %>
-    </div>
-    <div class="field">
-      <%= form.label :coeffGuide, 'Guide :' %>
-      <%= form.text_field :coeffGuide %>
-    </div>
-    <div class="field">
-      <%= form.label :coeffFood, 'Food :' %>
-      <%= form.text_field :coeffFood %>
-    </div>
-    <div class="field">
-      <%= form.label :coeffOut, 'Out :' %>
-      <%= form.text_field :coeffOut %>
-    </div>
-    <div class="field">
-      <input name="simulation[planet_id]" id="planet_id" type="text" style="display:none" value="<%= @simulation.planet_id %>"></input>
-    </div>
-    <div class="actions">
-      <%= form.submit 'Enregistrer' %>
-    </div>
+<%= image_tag "bg.jpg", class: "full-background" %>
+<div class="container-fluid text-white position-sticky">
+  <br>
+  <h1 id="title" class="text-centered">Edition des coefficients</h1>
+  <br><br><br>
+  <div class="offset-md-4 col-md-4">
+    <%= form_for(@simulation) do |form| %>
+      <div class="form-group">
+        <%= form.label :coeffPeople, 'People :' %>
+        <%= form.number_field :coeffPeople, class: "form-control", id: :coeffPeople, step: 0.1 %>
+      </div>
+      <div class="form-group">
+        <%= form.label :coeffAccomodation, 'Accomodation :' %>
+        <%= form.number_field :coeffAccomodation, class: "form-control", id: :coeffAccomodation, step: 0.1 %>
+      </div>
+      <div class="form-group">
+        <%= form.label :coeffGuide, 'Guide :' %>
+        <%= form.number_field :coeffGuide, class: "form-control", id: :coeffGuide, step: 0.1 %>
+      </div>
+      <div class="form-group">
+        <%= form.label :coeffFood, 'Food :' %>
+        <%= form.number_field :coeffFood, class: "form-control", id: :coeffFood, step: 0.1 %>
+      </div>
+      <div class="form-group">
+        <%= form.label :coeffOut, 'Out :' %>
+        <%= form.number_field :coeffOut, class: "form-control", id: :coeffOut, step: 0.1 %>
+      </div>
+      <div class="form-group">
+        <input name="simulation[planet_id]" id="planet_id" type="text" style="display:none" value="<%= @simulation.planet_id %>"></input>
+      </div>
+      <div class="actions">
+        <%= form.submit 'Enregistrer', class: "btn btn-success float-right" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
