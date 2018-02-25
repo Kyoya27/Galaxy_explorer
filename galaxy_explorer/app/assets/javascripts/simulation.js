@@ -1,13 +1,3 @@
-/*fucntion showSimu(){
-  var x = document.getElementById("simRes");
-
-  if(x.style.display === "none"){
-    x.style.display = "block";
-  }else {
-    x.style.display = "none";
-  }
-}*/
-
 function main(){
 
   var peopleC;
@@ -36,13 +26,8 @@ function main(){
       if(isNaN(nbDays)){
         nbDays = 1;
       }
-      console.log(people);
-      console.log(accom);
-      console.log(guide);
-      console.log(food);
-      console.log(out);
       total = (people*peopleC + accom*accomC + guide*guideC + food*foodC + out*outC)*nbDays;
-      $(".simuResult").append('<p>'+ total +'</p>');
+      $(".simuResult").append('<p>Vous Devriez Prévoir un budget de : '+ total +' $$</p>');
     })
   })
 }
