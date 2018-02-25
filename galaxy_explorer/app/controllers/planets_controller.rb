@@ -16,8 +16,12 @@ class PlanetsController < ApplicationController
 
   def create
     @planet = Planet.new(planet_params)
-    if @planet.save
-      redirect_to("/simulations/new?id_planet=" + @planet.id.to_s)
+    if check_fields(@planet)
+      if @planet.save
+        redirect_to("/simulations/new?id_planet=" + @planet.id.to_s)
+      else
+        render 'new'
+      end
     else
       render 'new'
     end
@@ -53,5 +57,13 @@ class PlanetsController < ApplicationController
       :galaxy,
       :thumbnail
     )
+  end
+
+  def check_fields(planet)
+    return  !planet.name.empty? &&
+            !planet.description.empty? &&
+            !planet.weather.empty? &&
+            !planet.galaxy.empty? &&
+            File.exist?("app/assets/images/" + planet.name + ".jpg")
   end
 end
