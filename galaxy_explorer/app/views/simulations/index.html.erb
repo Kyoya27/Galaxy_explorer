@@ -1,7 +1,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-<div class="container-fluid">
-<h1 class="text-center h1"> Calculer votre Budget de Voyage interstellaire</h1>
+<%= image_tag "bg.jpg", class: "full-background" %>
+<div class="container-fluid text-white" style="font-size: 20px;">
+<br>
+<h1 id="title" class="text-center position-sticky">Calculer votre Budget de Voyage interstellaire</h1>
+<br><br><br>
 
 <% @simulations.where(planet_id: params[:id]).each do |sims| %>
 <div class="simsInfo">
@@ -13,31 +15,12 @@
 </div>
 <% end %>
 
-<div class="row">
-    <div class="offset-md-2">
-    </div>
+<%= render 'form', simulation: @simulation %>
 
-    <div class="col-md-8">
-      <%= render 'form', simulation: @simulation %>
-    </div>
-    <div class="offset-md-2">
-    </div>
-</div>
-<div class="container-fluid no-padding">
-    <div class="row">
-      <div class="col-md-12 center">
-      <%= image_tag("banner2.gif", class: "img-responsive") %>
+<div class="row">
+  <div class="field col-lg-12">
+    <div class="simuResult" id="simRes">
     </div>
   </div>
-</div>
-<h2 class="text-center h2">Résultat de votre Voyage</h2>
-<div class="row">
-    <div class="offset-md-2">
-    </div>
-    <div class="col-md-8">
-        <%= render 'result', simulation: @simulation  %>
-    </div>
-    <div class="offset-md-2">
-    </div>
 </div>
 </div>

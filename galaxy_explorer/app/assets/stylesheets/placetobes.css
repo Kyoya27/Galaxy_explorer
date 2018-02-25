@@ -1,2 +1,25 @@
 .background{
 }
+
+.height-input{
+  height: 28px;
+  width: 200px;
+}
+
+.width-input select{
+  width: 200px;
+}
+
+.lineForm{
+  text-align: center;
+  padding-left: 10%;
+  padding-right: 10%;
+  line-height:40px;
+  height:40px;
+}
+
+.simuResult{
+  font-size: 40px;
+  color: white;
+  text-align: center;
+}
