@@ -13,7 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
- *= require simulation.css
- *= require_home.css
- *= require_placetobes
