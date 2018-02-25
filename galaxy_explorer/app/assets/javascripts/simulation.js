@@ -27,15 +27,20 @@ function main(){
 
     $("#butSimu").click(function(e){
       $(".simuResult").text("");
-      var people = parseInt($('select[name="simulation[coeffPeople]"] option:selected').val());
-      var accom = parseInt($('select[name="simulation[coeffAccomodation]"] option:selected').val());
-      var guide = parseInt($('select[name="simulation[coeffGuide]"] option:selected').val());
-      var food = parseInt($('select[name="simulation[coeffFood]"] option:selected').val());
-      var out = parseInt($('select[name="simulation[coeffOut]"] option:selected').val());
-      var nbDays = parseInt($('input[name="simulation[days]"]').val());
+      var people = parseInt($('select[name="coeffPeople"] option:selected').val());
+      var accom = parseInt($('select[name="coeffAccomodation"] option:selected').val());
+      var guide = parseInt($('select[name="coeffGuide"] option:selected').val());
+      var food = parseInt($('select[name="coeffFood"] option:selected').val());
+      var out = parseInt($('select[name="coeffOut"] option:selected').val());
+      var nbDays = parseInt($('input[name="days]"]').val());
       if(isNaN(nbDays)){
         nbDays = 1;
       }
+      console.log(people);
+      console.log(accom);
+      console.log(guide);
+      console.log(food);
+      console.log(out);
       total = (people*peopleC + accom*accomC + guide*guideC + food*foodC + out*outC)*nbDays;
       $(".simuResult").append('<p>'+ total +'</p>');
     })

@@ -46,6 +46,7 @@ class PlanetsController < ApplicationController
     @placetobe = Placetobe.where(planet_id: @planet.id).each do |pl|
       pl.destroy
     end
+    File.delete("app/assets/images/"+ @planet.name+".jpg")
     @planet.destroy
     redirect_to(@planet)
   end
