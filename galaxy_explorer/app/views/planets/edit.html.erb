@@ -1,25 +1,57 @@
-<h1>Edition d'une planète</h1>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<%= form_with(model: @planet) do |form| %>
-  <div class="field">
-    <div class="field">
-      <%= form.label :name, 'Nom :' %>
-      <%= @planet.name %>
+<%= image_tag "bg.jpg", class: "full-background" %>
+<div class="container-fluid text-white position-sticky">
+  <br>
+  <h1 id="title" class="text-centered">Edition d'une planète</h1>
+  <br><br><br>
+  <div class="offset-md-4 col-md-4">
+    <%= form_with(model: @planet) do |form| %>
+    <div class="form-group">
+      <%= form.label :name, "Nom (non modifiable) :" %>
+      <%= form.text_field :name, class: "form-control disabled", id: :name, style: "resize: vertical;", disabled: :boolean %>
     </div>
-    <div class="field">
-      <%= form.label :description, 'Description :' %>
-      <%= form.text_field :description %>
+    <div class="form-group">
+      <%= form.label :description, "Description :" %>
+      <%= form.text_area :description, class: "form-control", id: :description, rows: 5 %>
     </div>
-    <div class="field">
-      <%= form.label :weather, 'Météo :' %>
-      <%= form.text_field :weather %>
+    <div class="form-group">
+      <%= form.label :weather, "Météo :" %>
+      <%= form.text_field :weather, class: "form-control", id: :weather %>
     </div>
-    <div class="field">
-      <%= form.label :galaxy, 'Galaxie :' %>
-      <%= form.text_field :galaxy %>
+    <div class="form-group">
+      <%= form.label :galaxy, "Galaxie :" %>
+      <%= form.text_field :galaxy, class: "form-control", id: :galaxy %>
     </div>
     <div class="actions">
-      <%= form.submit 'Enregistrer' %>
+      <%= form.submit 'Enregistrer', class: "btn btn-outline-success float-right" %>
     </div>
+    <% end %>
   </div>
-<% end %>
+  <!--
+  <%= form_with(model: @planet) do |form| %>
+    <div class="field">
+      <div class="field">
+        <%= form.label :name, 'Nom :' %>
+        <%= @planet.name %>
+      </div>
+      <div class="field">
+        <%= form.label :description, 'Description :' %>
+        <%= form.text_field :description %>
+      </div>
+      <div class="field">
+        <%= form.label :weather, 'Météo :' %>
+        <%= form.text_field :weather %>
+      </div>
+      <div class="field">
+        <%= form.label :galaxy, 'Galaxie :' %>
+        <%= form.text_field :galaxy %>
+      </div>
+      <div class="actions">
+        <%= form.submit 'Enregistrer' %>
+      </div>
+    </div>
+  <% end %> -->
+</div>
