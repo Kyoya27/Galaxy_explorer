@@ -2,10 +2,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<html>
-<div class="container-fluid">
-<h1 class="text-center h1">Liste des planètes</h1>
-<br><br>
+<%= image_tag "bg.jpg", class: "full-background" %>
+<div class="container-fluid text-white">
+<h1 class="text-center position-sticky">Liste des planètes</h1>
+<br><br><br>
 <%
   count = 0;
   @planets.each do |planet|
@@ -16,7 +16,6 @@
           <%= image_tag planet.name + ".jpg", class: "rounded img-thumbnail img-responsive img-fluid", style: "width: 300px; height: 300px", alt: "Image de " + planet.name  %>
         </div>
         <div class="col-md-5">
-          <br>
           <dl class="row">
             <dt class="col-md-3">Nom</dt>
             <dd class="col-md-9"><%= planet.name %></dd>
@@ -27,20 +26,6 @@
             <dt class="col-md-3">Galaxie</dt>
             <dd class="col-md-9"><%= planet.galaxy %></dd>
           </dl>
-          <!--
-          <div class="row col-md-12">
-            <h4 class="h4">Nom : </h4><p><%= planet.name %></p>
-          </div>
-          <div class="row col-md-12">
-            <h4 class="h4">Description : </h4><p style="text-indent:10%;" class="text-justify"><%= planet.description %></p>
-          </div>
-          <div class="row col-md-12">
-            <h4 class="h4">Météo : </h4><p><%= planet.weather %></p>
-          </div>
-          <div class="row col-md-12">
-            <h4 class="h4">Galaxy : </h4><p><%= planet.galaxy %></p>
-          </div>
-          <br><br> -->
           <div class="row">
             <div class="col-md-3">
               <%= link_to "Simulation", "../simulations/" + planet.id.to_s, :class => "btn btn-outline-primary btn-block", :method => "get" %>
@@ -68,25 +53,21 @@
           </div>
         </div>
       </div>
-      <br><hr class="offset-md-3 col-md-6"><br>
+      <br><hr style="border-color: white;" class="offset-md-2 col-md-7"><br>
 
     <% else %>
     <div class="row">
       <div class="offset-md-2 col-md-5">
-        <br>
-        <div class="row col-md-12">
-          <h4 class="h4">Nom : </h4> <%= planet.name %>
-        </div>
-        <div class="row col-md-12">
-          <h4 class="h4">Description : </h4><p style="text-indent:10%;" class="text-justify"><%= planet.description %></p>
-        </div>
-        <div class="row col-md-12">
-          <h4 class="h4">Météo : </h4> <%= planet.weather %>
-        </div>
-        <div class="row col-md-12">
-          <h4 class="h4">Galaxy : </h4> <%= planet.galaxy %>
-        </div>
-        <br><br>
+        <dl class="row">
+          <dt class="col-md-3">Nom</dt>
+          <dd class="col-md-9"><%= planet.name %></dd>
+          <dt class="col-md-3">Description</dt>
+          <dd class="text-justify col-md-9"><%= planet.description %></dd>
+          <dt class="col-md-3">Météo</dt>
+          <dd class="col-md-9"><%= planet.weather %></dd>
+          <dt class="col-md-3">Galaxie</dt>
+          <dd class="col-md-9"><%= planet.galaxy %></dd>
+        </dl>
         <div class="row">
           <div class="col-md-3">
             <%= link_to "Simulation", "../simulations/" + planet.id.to_s, :class => "btn btn-outline-primary btn-block", :method => "get" %>
@@ -117,7 +98,7 @@
         <%= image_tag planet.name + ".jpg", class: "rounded img-thumbnail img-responsive img-fluid", style: "width: 300px; height: 300px", alt: "Image de " + planet.name  %>
       </div>
     </div>
-    <br><hr class="offset-md-3 col-md-6"><br>
+    <br><hr style="border-color: white;" class="offset-md-2 col-md-7"><br>
 
     <% end
     count += 1
@@ -129,4 +110,3 @@
 </div>
 <br>
 </div>
-</html>

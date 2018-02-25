@@ -28,7 +28,7 @@ class SimulationsController < ApplicationController
 	end
 	def destroy
 		@simulation.destroy
-		redirect_to(simulations_path)
+		redirect_to("/planets")
 	end
 
 	def finalResult
