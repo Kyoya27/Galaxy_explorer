@@ -36,6 +36,12 @@ class PlanetsController < ApplicationController
   end
 
   def destroy
+    @simulation = Simulation.where(planet_id: @planet.id).each do |s|
+      s.destroy
+    end
+    @placetobe = Placetobe.where(planet_id: @planet.id).each do |pl|
+      pl.destroy
+    end
     @planet.destroy
     redirect_to(@planet)
   end
